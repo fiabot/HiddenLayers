@@ -68,7 +68,7 @@ public class LevelCreator : MonoBehaviour
     void saveLevel()
     {
         Debug.Log("Saving Level");
-        PrefabUtility.SaveAsPrefabAsset(levelStorage.gameObject, "/../");
+
         targetTexture = level.getGoal().GetTexture2D();
         ConnectionManager.clearConnections();
         CreateLevel();
