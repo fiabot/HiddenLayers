@@ -34,6 +34,9 @@ public class ConnectionDisplay : MonoBehaviour
         complete = endingNode != null;
     }
 
+    /// <summary>
+    /// update current postions for the line renderer
+    /// </summary>
     void updatePosition()
     {
         if (endingNode != null && startingNode !=null)
@@ -51,6 +54,10 @@ public class ConnectionDisplay : MonoBehaviour
 
         line.SetPositions(points);
     }
+
+    /// <summary>
+    /// update colors for line renderer 
+    /// </summary>
     void updateColors()
     {
         
@@ -66,10 +73,20 @@ public class ConnectionDisplay : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// make connection between nodes and display it 
+    /// </summary>
     void completeConnection()
     {
         if (startingNode.node.isSame(endingNode.node))
         {
+            ConnectionManager.removeConnection(this);
+            Destroy(gameObject);
+        }else if (endingNode.layerInt != (startingNode.layerInt +1))
+        {
+            ConnectionManager.removeConnection(this);
+            Debug.Log("Cannot connect nodes");
             Destroy(gameObject);
         }
         else
@@ -82,7 +99,9 @@ public class ConnectionDisplay : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// check if ending and starting nodes are available and update positions
+    /// </summary>
     void Update()
     {
         if (endingNode != null && !complete)
@@ -95,7 +114,10 @@ public class ConnectionDisplay : MonoBehaviour
         }  
     }
 
-
+    /// <summary>
+    /// if left click on connection inverse connection
+    /// if right click on connection delete connection 
+    /// </summary>
     public void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
@@ -106,10 +128,13 @@ public class ConnectionDisplay : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            thisConnection.removeConnection();
-            Destroy(gameObject);
+            removeConnection();
         }
     }
+
+    /// <summary>
+    /// update collider with current positions 
+    /// </summary>
     public void updateCollider()
     {
         Vector2 upperLeft = new Vector2(points[0].x, points[0].y + lineWidth);
@@ -122,4 +147,26 @@ public class ConnectionDisplay : MonoBehaviour
 
     }
     
+    /// <summary>
+    /// delete connection between nodes, 
+    /// remove this from connection manager and 
+    /// destroy game object
+    /// </summary>
+    public void removeConnection()
+    {
+        thisConnection.removeConnection();
+        ConnectionManager.removeConnection(this);
+        Destroy(gameObject);
+
+    }
+
+    /// <summary>
+    /// destroy game object and remove connection 
+    /// without removing display from connection manager
+    /// </summary>
+    public void destroyDisplay()
+    {
+        thisConnection.removeConnection();
+        Destroy(gameObject);
+    }
 }

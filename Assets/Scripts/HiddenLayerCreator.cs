@@ -18,7 +18,7 @@ public class HiddenLayerCreator : MonoBehaviour
      void Start()
     {
         thisLayer = new Layer(numNormalNodes, numHorizontallyFlippedNodes, numVerticallyFlippedNodes, 
-            numClockwiseNodes, numCounterClockNodes, transform.position.x, transform.position.y);
+            numClockwiseNodes, numCounterClockNodes, transform.position.x, transform.position.y,0);
 
         display.thisLayer = thisLayer;
         display.ShowLayer();

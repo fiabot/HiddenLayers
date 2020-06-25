@@ -6,6 +6,7 @@ public class NodeSetUp : MonoBehaviour
 {
     public GameObject nodeObject;
     NodeDisplay display;
+    public int layerNum;
 
     public bool startFromNode;
     public Node startingNode;
@@ -34,6 +35,8 @@ public class NodeSetUp : MonoBehaviour
             display.startingColor = color;
             display.startWithNode = false; 
         }
+
+        display.layerInt = layerNum; 
         nodeObject.SetActive(true);
     }
 

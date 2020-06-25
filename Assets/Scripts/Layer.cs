@@ -13,7 +13,9 @@ public class Layer
 
     Node[] nodes;
     Vector2[] positions; 
-    float x; 
+    float x;
+
+    public int number; 
 
     /// <summary>
     /// constructor given starting nodes, x value, and starting y value 
@@ -21,7 +23,7 @@ public class Layer
     /// <param name="_nodes"></param> nodes in layer
     /// <param name="xPosition"></param> x position for layer
     /// <param name="startingY"></param> y positiong of first node (at the top) 
-    public Layer(Node[] _nodes, float xPosition, float startingY)
+    public Layer(Node[] _nodes, float xPosition, float startingY, int Layernumber)
     {
         nodes = _nodes;
         x = xPosition;
@@ -38,7 +40,7 @@ public class Layer
     /// <param name="_nodes"></param> nodes in layer
     /// <param name="xPosition"></param> x position for layer
     /// <param name="startingY"></param> y postion for top layer
-    public Layer(Node[] _nodes, float xPosition, float startingY, bool isInput)
+    public Layer(Node[] _nodes, float xPosition, float startingY, bool isInput, int Layernumber)
     {
         nodes = _nodes;
         x = xPosition;
@@ -55,7 +57,7 @@ public class Layer
     /// <param name="nodes"></param> number of blank nodes to add 
     /// <param name="xPosition"></param> x postion of layer 
     /// <param name="startingY"></param> postion of top node
-    public Layer(int numNodes, float xPosition, float startingY)
+    public Layer(int numNodes, float xPosition, float startingY, int Layernumber)
     {
         x = xPosition; 
         nodes = new Node[numNodes];
@@ -67,7 +69,9 @@ public class Layer
         setUpPostions(startingY);
 
         isInputLayer = false;
-        isOutPutLayer = false; 
+        isOutPutLayer = false;
+
+        number = Layernumber;
     }
 
     /// <summary>
@@ -81,7 +85,7 @@ public class Layer
     /// <param name="xPosition"></param> x postion of layer
     /// <param name="startingY"></param> y postion of layer 
     public Layer(int numNodes, int numHorizontalFlippedNodes, int numVerticallyFlippedNodes, 
-        int numClockWiseNodes, int numCounterClockNodes, float xPosition, float startingY)
+        int numClockWiseNodes, int numCounterClockNodes, float xPosition, float startingY, int Layernumber)
     {
         x = xPosition;
         int total = numNodes + numHorizontalFlippedNodes + numVerticallyFlippedNodes + numClockWiseNodes + numCounterClockNodes;
@@ -124,6 +128,8 @@ public class Layer
 
         isInputLayer = false;
         isOutPutLayer = false;
+
+        number = Layernumber;
     }
 
     /// <summary>
@@ -134,7 +140,7 @@ public class Layer
     /// <param name="colors"></param> colors for each node 
     /// <param name="xPosition"></param> x position of layer
     /// <param name="startingY"></param> y postition of top node 
-    public Layer(Texture2D[] shapes, GameColor[] colors, float xPosition, float startingY)
+    public Layer(Texture2D[] shapes, GameColor[] colors, float xPosition, float startingY, int Layernumber)
     {
         nodes = new Node[shapes.Length];
         for (int i = 0; i < nodes.Length; i++)
@@ -148,6 +154,8 @@ public class Layer
         isOutPutLayer = false;
 
         setUpPostions(startingY);
+
+        number = Layernumber;
     }
 
     /// <summary>
@@ -157,7 +165,7 @@ public class Layer
     /// <param name="shapes"></param> textures of black shapes to add to nodes 
     /// <param name="xPosition"></param> x position of layer
     /// <param name="startingY"></param> y postition of top node 
-    public Layer(Texture2D[] shapes, float xPosition, float startingY)
+    public Layer(Texture2D[] shapes, float xPosition, float startingY, int Layernumber)
     {
         nodes = new Node[shapes.Length];
         for (int i = 0; i < nodes.Length; i++)
@@ -170,6 +178,8 @@ public class Layer
         isOutPutLayer = false;
 
         setUpPostions(startingY);
+
+        number = Layernumber;
     }
 
     /// <summary>
@@ -177,7 +187,7 @@ public class Layer
     /// </summary>
     /// <param name="xPostion"></param> x position of layer
     /// <param name="startingY"></param> y position of node
-    public Layer(float xPostion, float startingY)
+    public Layer(float xPostion, float startingY, int Layernumber)
     {
         nodes = new Node[1];
         nodes[0] = new Node();
@@ -186,6 +196,8 @@ public class Layer
         x = xPostion;
 
         setUpPostions(startingY);
+
+        number = Layernumber;
     }
 
     /// <summary>

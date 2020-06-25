@@ -37,5 +37,20 @@ public class ConnectionManager : MonoBehaviour
         }
     }
 
+    public static void clearConnections()
+    {
+        foreach(ConnectionDisplay connection in connections)
+        {
+            connection.destroyDisplay();
+        }
+
+        connections.Clear();
+    }
+
+    public static void removeConnection(ConnectionDisplay connection)
+    {
+        connections.Remove(connection); 
+    }
+
 
 }

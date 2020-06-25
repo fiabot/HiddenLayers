@@ -9,6 +9,7 @@ public class NodeDisplay : MonoBehaviour
     public bool startWithNode;
     public Texture2D startingTexture;
     public string startingColor;
+    public int layerInt; 
 
     [Header ("Unity Set Up")]
     public SpriteRenderer rend;

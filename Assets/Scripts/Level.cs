@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level
+public class Level : ScriptableObject
 {
     Layer inputLayer;
     Layer[] hiddenLayers;

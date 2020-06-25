@@ -46,6 +46,7 @@ public class LayerDisplay : MonoBehaviour
             NodeSetUp setUp = thisObject.GetComponent<NodeSetUp>();
             setUp.startFromNode = true;
             setUp.startingNode = thisNode;
+            setUp.layerNum = thisLayer.number; 
             setUps[i] = setUp;
         }
 

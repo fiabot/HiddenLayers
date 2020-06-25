@@ -20,7 +20,7 @@ public class InputLayerCreator : MonoBehaviour
             colors[i] = new GameColor(colorStrings[i]); 
         }
 
-        thisLayer = new Layer(textures, colors, transform.position.x, transform.position.y);
+        thisLayer = new Layer(textures, colors, transform.position.x, transform.position.y,0);
         layerDisplay.thisLayer = thisLayer;
         layerDisplay.ShowLayer();
     }

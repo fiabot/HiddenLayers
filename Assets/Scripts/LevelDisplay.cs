@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDisplay : MonoBehaviour
+public class LevelDisplay : MonoBehaviour
 {
     public GameObject targetDisplayPrefab;
     public GameObject LayerDisplayPrefab; 
@@ -20,6 +20,7 @@ public class GameDisplay : MonoBehaviour
         inputDisplay.thisLayer = level.getInputLayer();
         inputDisplay.ShowLayer();
 
+        hiddenDisplays = new LayerDisplay[level.getNumHiddenLayer()]; 
         //display hidden layers 
         for (int i = 0; i < level.getNumHiddenLayer(); i++)
         {
@@ -31,6 +32,7 @@ public class GameDisplay : MonoBehaviour
 
         //display output later 
         GameObject outputObject = (GameObject)Instantiate(LayerDisplayPrefab);
+        outputDisplay = outputObject.GetComponent<LayerDisplay>();
         outputDisplay.thisLayer = level.getOutputLayer();
         outputDisplay.ShowLayer();
 
