@@ -15,8 +15,15 @@ public class GameColor
         {
             setUpDictionary();
         }
+        if(_colorName == null)
+        {
+            colorName = "orange";
+        }
+        else
+        {
+            colorName = _colorName;
+        }
         
-        colorName = _colorName;
         color = getColorFromName(colorName);
 
     }

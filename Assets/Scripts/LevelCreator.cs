@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEditor;
 using UnityEngine;
 
@@ -68,10 +69,17 @@ public class LevelCreator : MonoBehaviour
     void saveLevel()
     {
         Debug.Log("Saving Level");
-
+        //levelStorage = Storage.CreateInstance<Storage>();
         targetTexture = level.getGoal().GetTexture2D();
         ConnectionManager.clearConnections();
         CreateLevel();
+        levelStorage.EncodeLevel(level);
+
+        /*AssetDatabase.Refresh();
+        EditorUtility.SetDirty(levelStorage);
+        AssetDatabase.SaveAssets();*/
+
+
     }
     Layer CreateInputLayer()
     {

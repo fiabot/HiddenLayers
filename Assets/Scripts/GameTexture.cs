@@ -60,6 +60,39 @@ public class GameTexture
     }
 
     /// <summary>
+    /// Contruct game texture from 2d array of color strings 
+    /// </summary>
+    /// <param name="colorStrings"></param>
+    public GameTexture(string[,] colorStrings)
+    {
+        width = colorStrings.GetLength(0);
+        height = colorStrings.GetLength(0);
+        totalColors = new GameColor[width, height];
+
+        blackLayers = new int[width, height];
+        tex = new Texture2D(width, height);
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+
+                GameColor color = new GameColor(colorStrings[x, y]);
+                if (color.getColorName().Equals("black"))
+                {
+                    blackLayers[x, y] = 1;
+                }
+                else
+                {
+                    blackLayers[x, y] = 0;
+                }
+
+                totalColors[x, y] = color;
+            }
+        }
+    }
+
+    /// <summary>
     /// GameTexture from existing GameTexture
     /// </summary>
     /// <param name="orginalTexture"></param> starting Texture 2D 
@@ -214,6 +247,26 @@ public class GameTexture
         }
     }
 
+    public string[,] GetColorStrings()
+    {
+        string[,] returnString = new string[width, height];
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                GameColor color = GetPixel(x, y);
+                
+                returnString[x, y] = color.getColorName();
+            }
+        }
+        return returnString;
+    }
+
+    /// <summary>
+    /// return true if all pixels match with another gameTexture 
+    /// </summary>
+    /// <param name="texToCompare"></param> Gametexture to test equality
+    /// <returns></returns> true if textures are equal 
     public bool Equals(GameTexture texToCompare)
     {
         if (width != texToCompare.width || height != texToCompare.height)
