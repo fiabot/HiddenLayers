@@ -203,11 +203,21 @@ public class Layer
     /// <summary>
     /// create postions for all the nodes 
     /// </summary>
-    /// <param name="startingY"></param> y value of top node 
-    private void setUpPostions(float startingY)
+    /// <param name="middleY"></param> y middle of layer 
+    private void setUpPostions(float middleY)
     {
         positions = new Vector2[nodes.Length];
-        float currentY = startingY;
+        float currentY;
+        if(nodes.Length % 2 == 0)
+        {
+            currentY = middleY + (SPACE * (nodes.Length - 1) / 2);
+        }
+        else
+        {
+            currentY = middleY + (SPACE * Mathf.Floor(nodes.Length / 2));
+        }
+        
+        
         for (int i = 0; i < nodes.Length; i++)
         {
             positions[i] = new Vector2(x, currentY);

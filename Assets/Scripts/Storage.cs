@@ -31,7 +31,7 @@ public class Storage : ScriptableObject
     int inputLayerLength;
     int inputLayerIndex;
 
-    public void EncodeLevel(Level level)
+    /*public void EncodeLevel(Level level)
     {
         Layer inputLayer = level.getInputLayer();
         inputPostion = inputLayer.get_ith_position(0);
@@ -186,7 +186,7 @@ public class Storage : ScriptableObject
             {
                 Debug.Log("rows: " + rows.Length + " Org:" + returnArray.GetLength(0));
                 Debug.Log(rows[0]);
-            }*/
+            }
             for (int x = 0; x < int.Parse(demensions[0]); x++)
             {
                 //Debug.Log("Next Columns");
@@ -439,6 +439,6 @@ public class Storage : ScriptableObject
         Level level = new Level(inputTextures, inputPostion, hiddentemplates, hiddenLayerPositions, outputPostion, targetTexture);
         return level;
 
-    }
+    }*/
     
 }

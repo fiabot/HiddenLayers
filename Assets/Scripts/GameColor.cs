@@ -283,9 +283,13 @@ public class GameColor
         {
             return subtractFromBlack(otherColor);
         }
-        else
+        else if(otherColor.getColorName() == "black")
         {
             return new GameColor("white");
+        }
+        else
+        {
+            return this; 
         }
     }
 

@@ -11,19 +11,24 @@ public class LevelCreator : MonoBehaviour
     public string[] inputColorStrings;
 
     public HiddenTemplate[] hiddenLayerTemplates;
-    public Texture2D targetTexture;
+    public int numTargets;
+
+    public bool developerMode; 
+    public Texture2D[] targetTexture;
 
     public LevelDisplay display;
-    public Storage levelStorage; 
+    //public Storage levelStorage;
+    public string LevelName; 
 
     GameColor[] inputColors;
     Level level;
 
     int currentLayerNumber;
+    bool hasWon = false; 
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         CreateLevel();
     }
@@ -31,8 +36,11 @@ public class LevelCreator : MonoBehaviour
     void CreateLevel()
     {
         currentLayerNumber = 0;
+
+        //create input layer
         Layer inputLayer = CreateInputLayer();
 
+        //create hidden layers
         Layer[] hiddenLayers = new Layer[hiddenLayerTemplates.Length];
 
         float currentX = transform.position.x + layerSpace;
@@ -46,17 +54,27 @@ public class LevelCreator : MonoBehaviour
 
         }
 
+        //create output layer
         currentLayerNumber++;
-        Layer outputLayer = new Layer(currentX, y, currentLayerNumber);
+        Layer outputLayer = new Layer(numTargets,currentX, y, currentLayerNumber);
 
-        Node target;
-        if (targetTexture != null)
+        //create targets
+        Node[] target = new Node[numTargets];
+        if (targetTexture != null && !developerMode)
         {
-            target = new Node(targetTexture);
+            for (int i = 0; i < targetTexture.Length; i++)
+            {
+                target[i] = new Node(targetTexture[i]);
+            }
+            
         }
         else
         {
-            target = outputLayer.get_ith_node(0);
+            for (int i = 0; i < numTargets; i++)
+            {
+                target[i] = outputLayer.get_ith_node(i);
+            }
+           
         }
 
 
@@ -68,12 +86,22 @@ public class LevelCreator : MonoBehaviour
     }
     void saveLevel()
     {
-        Debug.Log("Saving Level");
-        //levelStorage = Storage.CreateInstance<Storage>();
-        targetTexture = level.getGoal().GetTexture2D();
-        ConnectionManager.clearConnections();
-        CreateLevel();
-        levelStorage.EncodeLevel(level);
+        if (developerMode)
+        {
+            Debug.Log("Saving Level");
+            //levelStorage = Storage.CreateInstance<Storage>();
+            for (int i = 0; i < numTargets; i++)
+            {
+                targetTexture[i] = level.getGoal()[i].GetTexture2D();
+                SaveNodeToPNG.save(level.getGoal()[i], LevelName + "_targetNode_" + i);
+            }
+            ConnectionManager.clearConnections();
+            CreateLevel();
+            
+        }
+        
+
+        //levelStorage.EncodeLevel(level);
 
         /*AssetDatabase.Refresh();
         EditorUtility.SetDirty(levelStorage);
@@ -113,6 +141,18 @@ public class LevelCreator : MonoBehaviour
         if (Input.GetKeyDown("s"))
         {
             saveLevel();
+        }
+
+        if (!developerMode && level.hasWon() && !hasWon)
+        {
+            Debug.Log("Won");
+            
+            if (LevelCompleteMenu.instance != null)
+            {
+                LevelCompleteMenu.instance.showMenu();
+            }
+            
+            hasWon = true; 
         }
     }
 }

@@ -36,12 +36,18 @@ public class LevelDisplay : MonoBehaviour
         outputDisplay.thisLayer = level.getOutputLayer();
         outputDisplay.ShowLayer();
 
-        //display target 
+        //display target
         Vector2 targetPosition = level.getOutputLayer().get_ith_position(0) + Vector2.right * 5f;
-        GameObject targetInstance = Instantiate(targetDisplayPrefab, targetPosition, Quaternion.identity);
-        NodeSetUp targetSetUp = targetInstance.GetComponent<NodeSetUp>();
-        targetSetUp.startingNode = level.getGoal();
-        targetSetUp.startFromNode = true;
-        targetSetUp.enableNode();
+        foreach (Node node in level.getGoal())
+        {
+            GameObject targetInstance = Instantiate(targetDisplayPrefab, targetPosition, Quaternion.identity);
+            NodeSetUp targetSetUp = targetInstance.GetComponent<NodeSetUp>();
+            targetSetUp.startingNode = node;
+            targetSetUp.startFromNode = true;
+            targetSetUp.enableNode();
+            targetPosition.y -= Layer.SPACE; 
+        }
+       
+        
     }
 }
