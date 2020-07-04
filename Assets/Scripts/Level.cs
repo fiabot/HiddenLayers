@@ -8,7 +8,7 @@ public class Level
     Layer[] hiddenLayers;
     Layer outputLayer;
     Node outputNode;
-    Node[] goal; 
+    Node[] goal;
 
     public Level(Layer input, Layer[] hidden, Layer output, Node[] targets)
     {
@@ -16,7 +16,7 @@ public class Level
         hiddenLayers = hidden;
         outputLayer = output;
         outputNode = output.get_ith_node(0);
-        goal = targets; 
+        goal = targets;
     }
 
     public Level(Texture2D[] inputTextures, Vector2 inputPostion, HiddenTemplate[] hiddenTemplates,
@@ -28,7 +28,7 @@ public class Level
 
         for (int i = 0; i < hiddenTemplates.Length; i++)
         {
-            currentLayerNumber++; 
+            currentLayerNumber++;
             HiddenTemplate template = hiddenTemplates[i];
             Vector2 postion = HiddenPostions[i];
             hiddenLayers[i] = new Layer(template.numNormalNodes, template.numHorizontallyFlippedNodes, template.numVerticallyFlippedNodes,
@@ -39,19 +39,19 @@ public class Level
         outputLayer = new Layer(outputPostion.x, outputPostion.y, currentLayerNumber);
         outputNode = outputLayer.get_ith_node(0);
 
-        goal = new Node[] { new Node(target) }; 
+        goal = new Node[] { new Node(target) };
 
     }
 
 
     public Layer getInputLayer()
     {
-        return inputLayer; 
+        return inputLayer;
     }
 
     public Layer get_ith_hidden_layer(int index)
     {
-        return hiddenLayers[index]; 
+        return hiddenLayers[index];
     }
 
     public int getNumHiddenLayer()
@@ -66,15 +66,16 @@ public class Level
 
     public Node[] getGoal()
     {
-        return goal; 
+        return goal;
     }
 
     public bool hasWon()
     {
-        
+
         for (int i = 0; i < outputLayer.Length(); i++)
         {
-            if (!outputLayer.get_ith_node(i).Equals(goal[i])){
+            if (!outputLayer.get_ith_node(i).Equals(goal[i]))
+            {
                 return false;
             }
         }

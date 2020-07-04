@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5709196104169004618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5928f7a09200849ac90d102cca3181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineWidth: 0.28
-  nutralColor: {r: 0, g: 0, b: 0, a: 0}
+  lineWidth: 0.3
+  nutralColor: {r: 1, g: 1, b: 1, a: 0}
   postiveColorStart: {r: 0.058823522, g: 0.83137256, b: 0.36985308, a: 0}
   postiveColorEnd: {r: 0, g: 0.754717, b: 0.33885255, a: 0}
   negativeColorStart: {r: 0.7921569, g: 0.003921591, b: 0.114360124, a: 0}
@@ -104,7 +104,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1e734fb4f9a5505459fa3d95c5c97fbe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,8 +122,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1684681383
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -182,4 +182,4 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 0
+  m_Loop: 1

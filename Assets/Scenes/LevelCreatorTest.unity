@@ -396,7 +396,7 @@ PrefabInstance:
     - target: {fileID: 5147904385258363804, guid: c76806f3cab4d6a4abedff34921e9d48,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 6.94
       objectReference: {fileID: 0}
     - target: {fileID: 5147904385258363804, guid: c76806f3cab4d6a4abedff34921e9d48,
         type: 3}
@@ -446,12 +446,17 @@ PrefabInstance:
     - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
         type: 3}
       propertyPath: inputTextures.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
         type: 3}
       propertyPath: hiddenLayerTemplates.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
+        type: 3}
+      propertyPath: targetTexture
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
         type: 3}
@@ -471,7 +476,7 @@ PrefabInstance:
     - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
         type: 3}
       propertyPath: hiddenLayerTemplates.Array.data[0].numNormalNodes
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
         type: 3}
@@ -499,16 +504,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 57cf81a5716b86247ab8597cc9084269,
         type: 2}
-    - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
-        type: 3}
-      propertyPath: inputTextures.Array.data[2]
-      value: 
-      objectReference: {fileID: 2800000, guid: 201026993556018488f70c89aadf4a74, type: 3}
-    - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
-        type: 3}
-      propertyPath: inputTextures.Array.data[3]
-      value: 
-      objectReference: {fileID: 2800000, guid: 201026993556018488f70c89aadf4a74, type: 3}
     - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
         type: 3}
       propertyPath: developerMode

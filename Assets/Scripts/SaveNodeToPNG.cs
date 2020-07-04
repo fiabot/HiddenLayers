@@ -25,14 +25,18 @@ public class SaveNodeToPNG : MonoBehaviour
         
     }
 
-    public static void save(Node node, string newFileName)
+    public static void save (Node node, string fileName)
     {
+        Debug.Log("Saving node");
+
         Texture2D tex = node.GetTexture2D();
         // Encode texture into PNG
         byte[] bytes = tex.EncodeToPNG();
 
         // For testing purposes, also write to a file in the project folder
-        File.WriteAllBytes(Application.dataPath + "/../Assets/Image Saves/" + newFileName + ".png", bytes);
+        File.WriteAllBytes(Application.dataPath + "/../Assets/Image Saves/" + fileName + ".png", bytes);
         Debug.Log("Node saved");
+
     }
+
 }

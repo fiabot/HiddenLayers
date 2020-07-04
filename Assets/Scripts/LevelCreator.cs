@@ -13,18 +13,18 @@ public class LevelCreator : MonoBehaviour
     public HiddenTemplate[] hiddenLayerTemplates;
     public int numTargets;
 
-    public bool developerMode; 
+    public bool developerMode;
     public Texture2D[] targetTexture;
 
     public LevelDisplay display;
     //public Storage levelStorage;
-    public string LevelName; 
+    public string LevelName;
 
     GameColor[] inputColors;
     Level level;
 
     int currentLayerNumber;
-    bool hasWon = false; 
+    bool hasWon = false;
 
 
     // Start is called before the first frame update
@@ -56,7 +56,7 @@ public class LevelCreator : MonoBehaviour
 
         //create output layer
         currentLayerNumber++;
-        Layer outputLayer = new Layer(numTargets,currentX, y, currentLayerNumber);
+        Layer outputLayer = new Layer(numTargets, currentX, y, currentLayerNumber);
 
         //create targets
         Node[] target = new Node[numTargets];
@@ -66,7 +66,7 @@ public class LevelCreator : MonoBehaviour
             {
                 target[i] = new Node(targetTexture[i]);
             }
-            
+
         }
         else
         {
@@ -74,7 +74,7 @@ public class LevelCreator : MonoBehaviour
             {
                 target[i] = outputLayer.get_ith_node(i);
             }
-           
+
         }
 
 
@@ -98,9 +98,9 @@ public class LevelCreator : MonoBehaviour
             }
             ConnectionManager.clearConnections();
             CreateLevel();
-            
+
         }
-        
+
 
         //levelStorage.EncodeLevel(level);
 
@@ -112,7 +112,7 @@ public class LevelCreator : MonoBehaviour
     }
     Layer CreateInputLayer()
     {
-        if(inputColorStrings.Length > 0)
+        if (inputColorStrings.Length > 0)
         {
             inputColors = new GameColor[inputColorStrings.Length];
             for (int i = 0; i < inputColorStrings.Length; i++)
@@ -126,13 +126,13 @@ public class LevelCreator : MonoBehaviour
         {
             return new Layer(inputTextures, transform.position.x, transform.position.y, currentLayerNumber);
         }
-        
+
     }
 
     Layer createHiddenLayer(HiddenTemplate template, float x, float y)
     {
         Layer thisLayer = new Layer(template.numNormalNodes, template.numHorizontallyFlippedNodes, template.numVerticallyFlippedNodes,
-            template.numClockwiseNodes, template.numCounterClockNodes, x,y, currentLayerNumber);
+            template.numClockwiseNodes, template.numCounterClockNodes, x, y, currentLayerNumber);
 
         return thisLayer;
     }
@@ -147,13 +147,13 @@ public class LevelCreator : MonoBehaviour
         if (!developerMode && level.hasWon() && !hasWon)
         {
             Debug.Log("Won");
-            
+
             if (LevelCompleteMenu.instance != null)
             {
                 LevelCompleteMenu.instance.showMenu();
             }
-            
-            hasWon = true; 
+
+            hasWon = true;
         }
     }
 }

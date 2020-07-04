@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -31,7 +31,7 @@ public class Storage : ScriptableObject
     int inputLayerLength;
     int inputLayerIndex;
 
-    /*public void EncodeLevel(Level level)
+    public void EncodeLevel(Level level)
     {
         Layer inputLayer = level.getInputLayer();
         inputPostion = inputLayer.get_ith_position(0);
@@ -439,6 +439,6 @@ public class Storage : ScriptableObject
         Level level = new Level(inputTextures, inputPostion, hiddentemplates, hiddenLayerPositions, outputPostion, targetTexture);
         return level;
 
-    }*/
+    }
     
-}
+}*/

@@ -5,14 +5,14 @@ using UnityEngine;
 public class LevelDisplay : MonoBehaviour
 {
     public GameObject targetDisplayPrefab;
-    public GameObject LayerDisplayPrefab; 
+    public GameObject LayerDisplayPrefab;
     public Level level;
 
     LayerDisplay inputDisplay;
     LayerDisplay[] hiddenDisplays;
-    LayerDisplay outputDisplay; 
+    LayerDisplay outputDisplay;
 
-   public void showLevel()
+    public void showLevel()
     {
         //display input layer 
         GameObject inputObject = (GameObject)Instantiate(LayerDisplayPrefab);
@@ -20,7 +20,7 @@ public class LevelDisplay : MonoBehaviour
         inputDisplay.thisLayer = level.getInputLayer();
         inputDisplay.ShowLayer();
 
-        hiddenDisplays = new LayerDisplay[level.getNumHiddenLayer()]; 
+        hiddenDisplays = new LayerDisplay[level.getNumHiddenLayer()];
         //display hidden layers 
         for (int i = 0; i < level.getNumHiddenLayer(); i++)
         {
@@ -45,9 +45,9 @@ public class LevelDisplay : MonoBehaviour
             targetSetUp.startingNode = node;
             targetSetUp.startFromNode = true;
             targetSetUp.enableNode();
-            targetPosition.y -= Layer.SPACE; 
+            targetPosition.y -= Layer.SPACE;
         }
-       
-        
+
+
     }
 }

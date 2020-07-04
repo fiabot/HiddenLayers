@@ -16,13 +16,13 @@ public class LevelCompleteMenu : MonoBehaviour
 
     public void OnDestroy()
     {
-        instance = null; 
+        instance = null;
     }
 
     public void showMenu()
     {
         Debug.Log("Showing Menu");
-        menu.SetActive(true); 
+        menu.SetActive(true);
     }
 
     public void loadNextLevel()

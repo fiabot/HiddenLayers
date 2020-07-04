@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Layer 
+public class Layer
 {
     public static int MAXNODES = 7;
     public static float SPACE = 3f;
 
     bool isInputLayer;
-    bool isOutPutLayer; 
+    bool isOutPutLayer;
 
     Node[] nodes;
-    Vector2[] positions; 
+    Vector3[] positions;
     float x;
 
-    public int number; 
+    public int number;
 
     /// <summary>
     /// constructor given starting nodes, x value, and starting y value 
@@ -59,11 +59,11 @@ public class Layer
     /// <param name="startingY"></param> postion of top node
     public Layer(int numNodes, float xPosition, float startingY, int Layernumber)
     {
-        x = xPosition; 
+        x = xPosition;
         nodes = new Node[numNodes];
         for (int i = 0; i < numNodes; i++)
         {
-            nodes[i] = new Node(); 
+            nodes[i] = new Node();
         }
 
         setUpPostions(startingY);
@@ -84,19 +84,19 @@ public class Layer
     /// <param name=" numCounterClockNodes"></param> number of nodes rotated counter clockwise
     /// <param name="xPosition"></param> x postion of layer
     /// <param name="startingY"></param> y postion of layer 
-    public Layer(int numNodes, int numHorizontalFlippedNodes, int numVerticallyFlippedNodes, 
+    public Layer(int numNodes, int numHorizontalFlippedNodes, int numVerticallyFlippedNodes,
         int numClockWiseNodes, int numCounterClockNodes, float xPosition, float startingY, int Layernumber)
     {
         x = xPosition;
         int total = numNodes + numHorizontalFlippedNodes + numVerticallyFlippedNodes + numClockWiseNodes + numCounterClockNodes;
-        int currentIndex = 0; 
+        int currentIndex = 0;
         nodes = new Node[total];
         for (int i = 0; i < numNodes; i++)
         {
             nodes[i] = new Node();
         }
 
-        currentIndex += numNodes; 
+        currentIndex += numNodes;
         for (int i = currentIndex; i < currentIndex + numHorizontalFlippedNodes; i++)
         {
             nodes[i] = new Node();
@@ -206,9 +206,9 @@ public class Layer
     /// <param name="middleY"></param> y middle of layer 
     private void setUpPostions(float middleY)
     {
-        positions = new Vector2[nodes.Length];
+        positions = new Vector3[nodes.Length];
         float currentY;
-        if(nodes.Length % 2 == 0)
+        if (nodes.Length % 2 == 0)
         {
             currentY = middleY + (SPACE * (nodes.Length - 1) / 2);
         }
@@ -216,11 +216,11 @@ public class Layer
         {
             currentY = middleY + (SPACE * Mathf.Floor(nodes.Length / 2));
         }
-        
-        
+
+
         for (int i = 0; i < nodes.Length; i++)
         {
-            positions[i] = new Vector2(x, currentY);
+            positions[i] = new Vector3(x, currentY, -20);
             currentY -= SPACE;
         }
     }
@@ -231,8 +231,8 @@ public class Layer
     /// <returns></returns>
     public Node get_ith_node(int index)
     {
-        return nodes[index]; 
-    } 
+        return nodes[index];
+    }
 
     /// <summary>
     /// get the position of the node at the given index
@@ -241,7 +241,7 @@ public class Layer
     /// <returns></returns>
     public Vector2 get_ith_position(int index)
     {
-        return positions[index]; 
+        return positions[index];
     }
 
     /// <summary>
@@ -250,7 +250,7 @@ public class Layer
     /// <returns></returns> true if layer is input, otherwise false 
     public bool isInput()
     {
-        return isInputLayer; 
+        return isInputLayer;
     }
 
     /// <summary>
@@ -275,6 +275,6 @@ public class Layer
 
     public int Length()
     {
-        return nodes.Length; 
+        return nodes.Length;
     }
 }

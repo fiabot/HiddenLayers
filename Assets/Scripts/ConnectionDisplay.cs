@@ -27,8 +27,7 @@ public class ConnectionDisplay : MonoBehaviour
         //line.SetPositions(points);
         line.startWidth = lineWidth;
         line.endWidth = lineWidth;
-        line.startColor = nutralColor;
-        line.endColor = nutralColor;
+        line.material.SetColor("_BaseColor", nutralColor);
         polygonCollider2D.enabled = false; 
 
         complete = endingNode != null;
@@ -41,14 +40,15 @@ public class ConnectionDisplay : MonoBehaviour
     {
         if (endingNode != null && startingNode !=null)
         {
-            points[0] = startingNode.connectFromPoint.position;
-            points[1] = endingNode.connectToPoint.position;
+            points[0] = startingNode.connectFromPoint.position + new Vector3(0,0,-10);
+            
+            points[1] = endingNode.connectToPoint.position + new Vector3(0,0,-10);
             updateCollider();
         }
         else if (startingNode != null)
         {
             points[0] = startingNode.connectFromPoint.position;
-            points[1] = Camera.main.ScreenToWorldPoint( Input.mousePosition);
+            points[1] = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             
         }
 
@@ -63,15 +63,16 @@ public class ConnectionDisplay : MonoBehaviour
         
         if (isPositive)
         {
-            //line.
-            line.startColor = postiveColorStart;
-            line.endColor = postiveColorEnd;
+            line.material.SetColor("_BaseColor", postiveColorStart);   
+            //line.startColor = postiveColorStart;
+            //line.endColor = postiveColorEnd;
         }
         else
         {
+            line.material.SetColor("_BaseColor", negativeColorStart);
             //line.material.color = negativeColorStart;
-            line.startColor = negativeColorStart;
-            line.endColor = negativeColorEnd;
+            //line.startColor = negativeColorStart;
+            //line.endColor = negativeColorEnd; 
         }
     }
 
