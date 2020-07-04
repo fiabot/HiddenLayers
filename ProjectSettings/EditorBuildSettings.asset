@@ -6,13 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Petal.unity
+    path: Assets/Scenes/Menu.unity
+    guid: 4f69a47a40a7cdd45967bea06f3fd3a8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Compression.unity
+    guid: 0468e974d9cc3da448b2620f9363e8a7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Petal.unity
     guid: 6862140f7fc925d46a788faab4c4b785
   - enabled: 1
-    path: Assets/Scenes/Smile.unity
+    path: Assets/Scenes/Levels/Smile.unity
     guid: ce4ec2a33ce63024ca3dc783ce859fe0
   - enabled: 1
-    path: Assets/Scenes/Heart.unity
+    path: Assets/Scenes/Levels/Heart.unity
     guid: 5af616f7f291cf94db2865b4df253d48
   - enabled: 1
     path: Assets/Scenes/EndScene.unity

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -15,6 +16,8 @@ public class NodeDisplay : MonoBehaviour
     public SpriteRenderer rend;
     public Transform connectToPoint;
     public Transform connectFromPoint;
+    public GameObject halo;
+    public bool enableHalo; 
 
     [Header ("Node Type")]
     public bool flipHor;
@@ -43,6 +46,8 @@ public class NodeDisplay : MonoBehaviour
         updateNode();
 
         InvokeRepeating("updateNode", 0f, 0.2f);
+
+        halo.SetActive(false);
     }
 
     public void setUpNode()
@@ -108,14 +113,28 @@ public class NodeDisplay : MonoBehaviour
     /// </summary>
     public void OnMouseOver()
     {
+        halo.SetActive(true);
         if (Input.GetMouseButtonDown(0))
         {
-            ConnectionManager.nodeClicked(this, true);
+            enableHalo = ConnectionManager.nodeClicked(this, true);
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            ConnectionManager.nodeClicked(this, false);
+            enableHalo = ConnectionManager.nodeClicked(this, false);
         }
+    }
+    private void OnMouseExit()
+    {
+       
+        halo.SetActive(false);
+        
+        
+    }
+
+    public void showHalo()
+    {
+        enableHalo = true;
+        halo.SetActive(true);
     }
 
     /// <summary>

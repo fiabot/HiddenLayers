@@ -63,11 +63,13 @@ public class ConnectionDisplay : MonoBehaviour
         
         if (isPositive)
         {
+            //line.
             line.startColor = postiveColorStart;
             line.endColor = postiveColorEnd;
         }
         else
         {
+            //line.material.color = negativeColorStart;
             line.startColor = negativeColorStart;
             line.endColor = negativeColorEnd;
         }

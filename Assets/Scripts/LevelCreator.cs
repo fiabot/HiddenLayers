@@ -89,6 +89,7 @@ public class LevelCreator : MonoBehaviour
         if (developerMode)
         {
             Debug.Log("Saving Level");
+            targetTexture = new Texture2D[numTargets];
             //levelStorage = Storage.CreateInstance<Storage>();
             for (int i = 0; i < numTargets; i++)
             {

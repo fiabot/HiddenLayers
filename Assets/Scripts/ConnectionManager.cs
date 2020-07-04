@@ -16,7 +16,7 @@ public class ConnectionManager : MonoBehaviour
         connections = new List<ConnectionDisplay>();
     }
 
-    public static void nodeClicked(NodeDisplay display, bool isPositive)
+    public static bool nodeClicked(NodeDisplay display, bool isPositive)
     {
         if (firstClicked == null)
         {
@@ -25,6 +25,7 @@ public class ConnectionManager : MonoBehaviour
             ConnectionDisplay line = cObj.GetComponent<ConnectionDisplay>();
             line.startingNode = display;
             connections.Add(line);
+            return false;
 
         }else 
         {
@@ -34,6 +35,7 @@ public class ConnectionManager : MonoBehaviour
             line.isPositive = isPositive; 
             line.endingNode = display;
             display.updateNode();
+            return true;
         }
     }
 
