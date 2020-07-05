@@ -536,6 +536,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
         type: 3}
+      propertyPath: targetTexture.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
+        type: 3}
       propertyPath: inputTextures.Array.data[0]
       value: 
       objectReference: {fileID: 2800000, guid: b35515f396a44f8438d2916dd6472e13, type: 3}
@@ -578,6 +583,11 @@ PrefabInstance:
         type: 3}
       propertyPath: numTargets
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147904385258363805, guid: c76806f3cab4d6a4abedff34921e9d48,
+        type: 3}
+      propertyPath: developerMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c76806f3cab4d6a4abedff34921e9d48, type: 3}

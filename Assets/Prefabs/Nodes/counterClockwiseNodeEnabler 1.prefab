@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeObject: {fileID: 3532197163123400326}
+  display: {fileID: 0}
   layerNum: 0
   startFromNode: 0
   startingTexture: {fileID: 0}

@@ -7,6 +7,7 @@ using UnityEngine;
 public class LevelCreator : MonoBehaviour
 {
     public static  float layerSpace = 6;
+    public static float outlineScaleFactor = 0.8f;
     public Texture2D[] inputTextures;
     public string[] inputColorStrings;
 
@@ -17,6 +18,9 @@ public class LevelCreator : MonoBehaviour
     public Texture2D[] targetTexture;
 
     public LevelDisplay display;
+    public Transform outputOutline;
+    public Transform targetOutline;
+    public Color completeColor;
     //public Storage levelStorage;
     public string LevelName;
 
@@ -35,6 +39,7 @@ public class LevelCreator : MonoBehaviour
 
     void CreateLevel()
     {
+       
         currentLayerNumber = 0;
 
         //create input layer
@@ -82,6 +87,10 @@ public class LevelCreator : MonoBehaviour
 
 
         display.level = level;
+        outputOutline.position = new Vector3(level.getOutputLayer().get_ith_position(0).x, 0, 0);
+        outputOutline.localScale = new Vector3(outputOutline.localScale.x, outlineScaleFactor * numTargets, 1);
+        targetOutline.position = new Vector3(level.getOutputLayer().get_ith_position(0).x + layerSpace, 0, 0);
+        targetOutline.localScale = new Vector3(outputOutline.localScale.x, outlineScaleFactor * numTargets, 1);
         display.showLevel();
     }
     void saveLevel()
@@ -156,7 +165,9 @@ public class LevelCreator : MonoBehaviour
 
     IEnumerator showWin()
     {
-        yield return new WaitForSeconds(0.5f);
+        outputOutline.GetComponent<SpriteRenderer>().color = completeColor;
+        targetOutline.GetComponent<SpriteRenderer>().color = completeColor;
+        yield return new WaitForSeconds(1f);
         if (LevelCompleteMenu.instance != null)
         {
             LevelCompleteMenu.instance.showMenu();

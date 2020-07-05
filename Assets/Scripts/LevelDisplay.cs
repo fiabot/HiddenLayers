@@ -35,6 +35,7 @@ public class LevelDisplay : MonoBehaviour
         outputDisplay = outputObject.GetComponent<LayerDisplay>();
         outputDisplay.thisLayer = level.getOutputLayer();
         outputDisplay.ShowLayer();
+       
 
         //display target
         targets = new NodeDisplay[level.getGoal().Length];

@@ -46,11 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineWidth: 0.3
-  nutralColor: {r: 1, g: 1, b: 1, a: 0}
-  postiveColorStart: {r: 0.058823522, g: 0.83137256, b: 0.36985308, a: 0}
-  postiveColorEnd: {r: 0, g: 0.754717, b: 0.33885255, a: 0}
-  negativeColorStart: {r: 0.7921569, g: 0.003921591, b: 0.114360124, a: 0}
-  negativeColorEnd: {r: 0.6509434, g: 0, b: 0.11063963, a: 0}
+  neutral: {r: 0.41208312, g: 0.16296001, b: 0.56, a: 0}
+  positiveColor: {r: 0, g: 0.8818116, b: 1, a: 0}
+  negativeColor: {r: 1, g: 0, b: 0.2520671, a: 0}
   startingNode: {fileID: 0}
   endingNode: {fileID: 0}
   line: {fileID: 7986994354524066756}

@@ -97,8 +97,8 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.614
-  m_Color: {r: 0.69804156, g: 0.07075471, b: 1, a: 1}
-  m_Intensity: 6
+  m_Color: {r: 0.504, g: 0.6463121, b: 1, a: 1}
+  m_Intensity: 3
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 7718bc0c0000000059cd959b
   m_LightCookieSprite: {fileID: 0}
@@ -292,7 +292,8 @@ MonoBehaviour:
   connectFromPoint: {fileID: 6945588597308951534}
   highlighted: {fileID: 8522207201500303891}
   connectedEffect: {fileID: 2168327585878171602}
-  isConnected: 0
+  numConnections: 0
+  target: 0
   flipHor: 0
   flipvert: 0
   rotateClockWise: 0
@@ -385,7 +386,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 07216332d3e163c4abbf3b27379af4a2, type: 3}
-  m_Color: {r: 0.45426518, g: 0, b: 0.8301887, a: 1}
+  m_Color: {r: 0.66172224, g: 0, b: 0.83137256, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -410,13 +411,13 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.614
-  m_Color: {r: 1, g: 0, b: 0.88976, a: 1}
-  m_Intensity: 3
+  m_Color: {r: 1, g: 0, b: 0.629899, a: 1}
+  m_Intensity: 6
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 7718bc0c0000000059cd959b
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 10
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
@@ -534,7 +535,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.674
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 4.06
+  m_Intensity: 4
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 000000007718bc0c
   m_LightCookieSprite: {fileID: 0}

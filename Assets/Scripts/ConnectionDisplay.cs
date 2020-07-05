@@ -5,11 +5,10 @@ using UnityEngine;
 public class ConnectionDisplay : MonoBehaviour
 {
     public float lineWidth;
-    public Color nutralColor;
-    public Color postiveColorStart;
-    public Color postiveColorEnd;
-    public Color negativeColorStart;
-    public Color negativeColorEnd;
+    public Color neutral;
+    public Color positiveColor;
+    public Color negativeColor;
+    
 
     public NodeDisplay startingNode;
     public NodeDisplay endingNode;
@@ -27,7 +26,7 @@ public class ConnectionDisplay : MonoBehaviour
         //line.SetPositions(points);
         line.startWidth = lineWidth;
         line.endWidth = lineWidth;
-        line.material.SetColor("_BaseColor", nutralColor);
+        line.material.SetColor("_BaseColor", neutral);
         polygonCollider2D.enabled = false; 
 
         complete = endingNode != null;
@@ -63,16 +62,13 @@ public class ConnectionDisplay : MonoBehaviour
         
         if (isPositive)
         {
-            line.material.SetColor("_BaseColor", postiveColorStart);   
-            //line.startColor = postiveColorStart;
-            //line.endColor = postiveColorEnd;
+            line.material.SetColor("_BaseColor", positiveColor);   
+           
         }
         else
         {
-            line.material.SetColor("_BaseColor", negativeColorStart);
-            //line.material.color = negativeColorStart;
-            //line.startColor = negativeColorStart;
-            //line.endColor = negativeColorEnd; 
+            line.material.SetColor("_BaseColor", negativeColor);
+            
         }
     }
 

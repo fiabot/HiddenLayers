@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeObject: {fileID: 757878041135739168}
+  display: {fileID: 0}
   layerNum: 0
   startFromNode: 0
   startingTexture: {fileID: 0}
@@ -56,6 +57,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1816461475370368945}
     m_Modifications:
+    - target: {fileID: 5891777878590531847, guid: 9d49ad86c8eda5a4fb025dbadcad2e83,
+        type: 3}
+      propertyPath: m_AlphaBlendOnOverlap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8447621314965713479, guid: 9d49ad86c8eda5a4fb025dbadcad2e83,
         type: 3}
       propertyPath: m_Name

@@ -267,7 +267,7 @@ public class GameColor
         {
             return new GameColor("blue");
         }
-        else if (getColorName() ==  "green" && otherColor.getColorName() == "blue")
+        else if (getColorName() == "green" && otherColor.getColorName() == "blue")
         {
             return new GameColor("yellow");
         }
@@ -279,13 +279,24 @@ public class GameColor
         {
             return new GameColor("red");
         }
-        else if (getColorName() == "black")
+        else if (getColorName() == "blue" && (otherColor.getColorName() == "purple" || otherColor.getColorName() == "green"))
         {
-            return subtractFromBlack(otherColor);
+            return new GameColor("white");
+
+        }
+        else if (getColorName() == "red" && (otherColor.getColorName() == "purple" || otherColor.getColorName() == "orange"))
+        {
+            return new GameColor("white");
+
+        }
+        else if (getColorName() == "yellow" && (otherColor.getColorName() == "orange" || otherColor.getColorName() == "green"))
+        {
+            return new GameColor("white");
+
         }
         else
         {
-            return new GameColor("white");
+            return this;
         }
     }
 
