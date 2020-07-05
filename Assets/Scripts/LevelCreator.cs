@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class LevelCreator : MonoBehaviour
 {
-    public float layerSpace;
+    public static  float layerSpace = 6;
     public Texture2D[] inputTextures;
     public string[] inputColorStrings;
 
@@ -139,6 +139,7 @@ public class LevelCreator : MonoBehaviour
 
     public void Update()
     {
+        display.lightUpTargets();
         if (Input.GetKeyDown("s"))
         {
             saveLevel();
@@ -146,14 +147,21 @@ public class LevelCreator : MonoBehaviour
 
         if (!developerMode && level.hasWon() && !hasWon)
         {
+            //display.lightUpTargets();
             Debug.Log("Won");
-
-            if (LevelCompleteMenu.instance != null)
-            {
-                LevelCompleteMenu.instance.showMenu();
-            }
-
-            hasWon = true;
+            StartCoroutine(showWin());
+            
         }
+    }
+
+    IEnumerator showWin()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (LevelCompleteMenu.instance != null)
+        {
+            LevelCompleteMenu.instance.showMenu();
+        }
+
+        hasWon = true;
     }
 }

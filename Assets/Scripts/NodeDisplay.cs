@@ -16,10 +16,12 @@ public class NodeDisplay : MonoBehaviour
     public SpriteRenderer rend;
     public Transform connectToPoint;
     public Transform connectFromPoint;
-    public GameObject halo;
-    public bool enableHalo; 
+    public GameObject highlighted;
+    public GameObject connectedEffect; 
+    public int numConnections;
 
-    [Header ("Node Type")]
+    [Header("Node Type")]
+    public bool target; 
     public bool flipHor;
     public bool flipvert;
     public bool rotateClockWise;
@@ -47,7 +49,9 @@ public class NodeDisplay : MonoBehaviour
 
         InvokeRepeating("updateNode", 0f, 0.2f);
 
-        halo.SetActive(false);
+        highlighted.SetActive(false);
+        connectedEffect.SetActive(false);
+        numConnections = 0;
     }
 
     public void setUpNode()
@@ -113,28 +117,43 @@ public class NodeDisplay : MonoBehaviour
     /// </summary>
     public void OnMouseOver()
     {
-        halo.SetActive(true);
-        if (Input.GetMouseButtonDown(0))
-        {
-            enableHalo = ConnectionManager.nodeClicked(this, true);
+        if (ConnectionManager.canConnect(this) && !target){
+            highlighted.SetActive(true);
+            if (Input.GetMouseButtonDown(0))
+            {
+                showConnected();
+                ConnectionManager.nodeClicked(this, true);
+                
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                showConnected();
+                ConnectionManager.nodeClicked(this, false);
+                
+            }
         }
-        else if (Input.GetMouseButtonDown(1))
-        {
-            enableHalo = ConnectionManager.nodeClicked(this, false);
-        }
+       
     }
     private void OnMouseExit()
     {
        
-        halo.SetActive(false);
-        
-        
+        highlighted.SetActive(false);  
     }
 
-    public void showHalo()
+    public void showConnected()
     {
-        enableHalo = true;
-        halo.SetActive(true);
+        numConnections += 1;
+        connectedEffect.SetActive(true);
+    }
+    public void unconnect()
+    {
+        numConnections -= 1;
+        if (numConnections <= 0)
+        {
+            connectedEffect.SetActive(false);
+            
+            
+        }
     }
 
     /// <summary>

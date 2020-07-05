@@ -84,6 +84,7 @@ public class ConnectionDisplay : MonoBehaviour
     {
         if (startingNode.node.isSame(endingNode.node))
         {
+            
             ConnectionManager.removeConnection(this);
             Destroy(gameObject);
         }else if (endingNode.layerInt != (startingNode.layerInt +1))

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Layer
 {
     public static int MAXNODES = 7;
-    public static float SPACE = 3f;
+    public static float SPACE = 3.5f;
 
     bool isInputLayer;
     bool isOutPutLayer;

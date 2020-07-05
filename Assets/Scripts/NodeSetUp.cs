@@ -5,7 +5,7 @@ using UnityEngine;
 public class NodeSetUp : MonoBehaviour
 {
     public GameObject nodeObject;
-    NodeDisplay display;
+    public NodeDisplay display;
     public int layerNum;
 
     public bool startFromNode;

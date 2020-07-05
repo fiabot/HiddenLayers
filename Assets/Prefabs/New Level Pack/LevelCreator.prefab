@@ -43,9 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a960c0c0840bf4faaac53bc75e5ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerSpace: 5
+  layerSpace: 6
   inputTextures: []
   inputColorStrings: []
   hiddenLayerTemplates: []
-  targetTexture: {fileID: 0}
+  numTargets: 0
+  developerMode: 0
+  targetTexture:
+  - {fileID: 0}
   display: {fileID: 4872762451497568837, guid: 544c64b4af443534bb8694d157770893, type: 3}
+  LevelName: 
